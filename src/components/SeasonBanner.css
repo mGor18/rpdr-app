@@ -1,0 +1,7 @@
+.banner-container {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  height: 150px; 
+  color: white;
+}

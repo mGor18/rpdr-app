@@ -1,0 +1,17 @@
+html,
+body,
+#root {
+  height: auto;
+}
+
+#root {
+  margin-bottom: 20px;
+}
+
+.content {
+  height: inherit;
+}
+
+.container {
+  margin-top: 31px;
+}
