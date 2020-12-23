@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import QueenCard from './QueenCard';
 import dragRace from '../apis/dragRace';
 
-const QueenList = ({ seasonInfo }) => {
+const QueenList = ({ seasonInfo, onSelectedChange }) => {
   const [queenList, setQueenList] = useState([])
 
   useEffect(() => {
@@ -20,6 +20,7 @@ const QueenList = ({ seasonInfo }) => {
       <QueenCard 
         key={queen.id}
         image={queen.image_url}
+        onClick={() => onSelectedChange(queen)}
       />
     );
   });

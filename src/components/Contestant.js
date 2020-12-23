@@ -3,20 +3,17 @@ import React, { useState, useEffect } from 'react';
 import dragRace from '../apis/dragRace';
 
 
-const Contestant = () => {
-  const [currentQueen, setCurrentQueen] = useState(89);
+const Contestant = ({ seasonInfo, queenInfo }) => {
   const [contestantData, setContestantData] = useState({seasons: []});
 
   useEffect(() => {
     const search = async () => {
-      const response = await dragRace.get(`/queens/${currentQueen}`);
+      const response = await dragRace.get(`/queens/${queenInfo.id}`);
 
       setContestantData(response.data);
     };
       return search();
-  }, [currentQueen]);
-
-  console.log(currentQueen);
+  }, [queenInfo.id]);
 
   if(typeof contestantData.name === undefined) {
     return <div>Loading...</div>

@@ -1,10 +1,10 @@
 import './QueenCard.css';
 import React from 'react';
 
-const QueenCard = ({ image }) => {
+const QueenCard = ({ image, onClick }) => {
 
   return (
-    <div className="btn btn-lg card-container" style={{backgroundImage: `url(${image})`}}>
+    <div onClick={onClick} className="btn btn-lg card-container" style={{backgroundImage: `url(${image})`}}>
       {/* <div className="card-img" ></div> */}
       {/* <div>Name</div> */}
     </div>

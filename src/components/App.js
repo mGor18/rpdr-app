@@ -4,36 +4,42 @@ import Header from './Header';
 import SeasonList from './SeasonList';
 import QueenList from './QueenList';
 import EpisodesList from './EpisodesList';
-//import Contestant from './Contestant';
+import Contestant from './Contestant';
 
 const App = () => {
   const [seasonInfo, setSeasonInfo] = useState(null);
+  const [queenInfo, setQueenInfo] = useState(null);
 
   let content;
 
-  if (seasonInfo === null) { // The user has not selected anything
+  const resetState = () => {
+    setSeasonInfo(null);
+    setQueenInfo(null);
+  }
+
+  if (seasonInfo === null) { 
     content = (
       <div>
         <SeasonList reg={/^A/} seasonName={"RPDR Seasons"} onSelectedChange={setSeasonInfo} />
         <SeasonList reg={/^(?!A)/} seasonName={'All Stars Seasons'} onSelectedChange={setSeasonInfo}/>
       </div>
     );
-  } else if (seasonInfo.id !== null) { // The user has selected SeasonBanner
+  } else if (seasonInfo !== null && queenInfo === null) { 
     content = (
       <div>
-        <QueenList seasonInfo={seasonInfo} />
+        <QueenList seasonInfo={seasonInfo} onSelectedChange={setQueenInfo} />
         <EpisodesList seasonInfo={seasonInfo} />
       </div>
     );
-  // } else if () { // The user has selected QueenCard
-  //   content = (
-  //     // <Contestant seasonInfo={seasonInfo}/>
-  //   );
-   }
+  } else if (queenInfo !== null) { 
+    content = (
+      <Contestant seasonInfo={seasonInfo} queenInfo={queenInfo} />
+    );
+  };
 
   return (
     <div className="content">
-      <Header onSelectedChange={setSeasonInfo}/>
+      <Header onSelectedChange={resetState} />
       <div className="container-lg container">
         {content}
       </div>
@@ -41,10 +47,12 @@ const App = () => {
   );
 };
 
+
 export default App;
 
 //TODO:
-// add onClick event to header that updates seasonInfo to 'null'
-// add Queenpage components to 'if' statement
-// 
 // fix css etc (update this list later)
+  //  add shadows to cards
+  //  check view on small devices
+    //  queen list
+  
