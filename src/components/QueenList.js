@@ -3,18 +3,17 @@ import React, { useState, useEffect } from 'react';
 import QueenCard from './QueenCard';
 import dragRace from '../apis/dragRace';
 
-const QueenList = () => {
-  const [currentSeason, setCurrentSeason] = useState(1);
+const QueenList = ({ seasonInfo }) => {
   const [queenList, setQueenList] = useState([])
 
   useEffect(() => {
     const search = async () => {
-      const response = await dragRace.get(`/seasons/${currentSeason}/queens`);
+      const response = await dragRace.get(`/seasons/${seasonInfo.id}/queens`);
 
       setQueenList(response.data);
     }
     return search();
-  }, [currentSeason]);
+  }, [seasonInfo.id]);
 
   const renderedList = queenList.map((queen) => {
     return (
@@ -27,7 +26,7 @@ const QueenList = () => {
 
   return (
     <div>
-      <h3>Season {currentSeason} Contestants</h3>
+      <h3>Season {seasonInfo.seasonNumber} Contestants</h3>
       <div className="comp-container">
         {renderedList}
       </div>

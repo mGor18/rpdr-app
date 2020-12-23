@@ -3,7 +3,7 @@ import React, { useState, useEffect}  from 'react';
 import SeasonBanner from './SeasonBanner';
 import dragRace from '../apis/dragRace';
 
-const SeasonList = ({ reg, seasonName }) => {
+const SeasonList = ({ reg, seasonName, onSelectedChange }) => {
   const [seasons, setSeasons] = useState([]);
 
   const seasonReg = reg;
@@ -27,12 +27,13 @@ const SeasonList = ({ reg, seasonName }) => {
   }, []);
 
     const renderedList = seasons.map((season) => {
-
+     
       return (
         <SeasonBanner
           key={season.id}
           pic={season.image_url}
           seasonNum={season.seasonNumber}
+          onClick={() => onSelectedChange(season)}
         />
       );
     });

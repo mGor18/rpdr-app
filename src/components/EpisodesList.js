@@ -3,19 +3,18 @@ import '../apis/dragRace';
 import dragRace from '../apis/dragRace';
 
 
-const EpisodesList = () => {
-  const [currentSeason, setCurrentSeason] = useState(1);
+const EpisodesList = ({ seasonInfo }) => {
   const [currentEpisodes, setCurrentEpisodes] = useState([]);
 
 
   useEffect(() => {
     const search = async () => {
-      const response = await dragRace.get(`seasons/${currentSeason}/episodes`, {});
+      const response = await dragRace.get(`seasons/${seasonInfo.id}/episodes`, {});
   
       setCurrentEpisodes(response.data);
     };
     return search();
-  }, [currentSeason]);
+  }, [seasonInfo.id]);
   
   const renderedList = currentEpisodes.map((episode) => {
     return (
@@ -26,7 +25,7 @@ const EpisodesList = () => {
 
   return (
     <div>
-      <h3>Episodes List</h3>
+      <h3>Season {seasonInfo.seasonNumber} Episodes</h3>
       <div>
         {renderedList}
       </div>
