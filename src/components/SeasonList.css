@@ -4,3 +4,7 @@
   grid-template-columns: repeat(6, minmax(130px, 1fr));
   margin-bottom: 45px;
 }
+
+h3 {
+  font-family: 'Raleway', sans-serif;
+}

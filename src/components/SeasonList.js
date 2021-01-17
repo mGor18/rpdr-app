@@ -41,6 +41,7 @@ const SeasonList = ({ reg, seasonName, onSelectedChange }) => {
   return (
     <div>
       <h3>{seasonName}</h3>
+      <div className="mb-4"></div>
       <div className="list-container">
         {renderedList}
       </div>

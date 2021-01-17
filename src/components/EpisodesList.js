@@ -26,6 +26,7 @@ const EpisodesList = ({ seasonInfo }) => {
   return (
     <div>
       <h3>Season {seasonInfo.seasonNumber} Episodes</h3>
+      <div className="mb-4"></div>
       <div>
         {renderedList}
       </div>

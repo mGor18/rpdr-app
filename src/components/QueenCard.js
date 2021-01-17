@@ -4,7 +4,7 @@ import React from 'react';
 const QueenCard = ({ image, onClick }) => {
 
   return (
-    <div onClick={onClick} className="btn btn-lg card-container" style={{backgroundImage: `url(${image})`}}>
+    <div onClick={onClick} className="btn btn-lg card-container shadow" style={{backgroundImage: `url(${image})`}}>
       {/* <div className="card-img" ></div> */}
       {/* <div>Name</div> */}
     </div>
@@ -12,9 +12,3 @@ const QueenCard = ({ image, onClick }) => {
 };
 
 export default QueenCard;
-
-
-// Queen card needs:
-  //key
-  //photo
-  //tooltip with the name of the queen? 

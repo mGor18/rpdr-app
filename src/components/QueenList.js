@@ -28,6 +28,7 @@ const QueenList = ({ seasonInfo, onSelectedChange }) => {
   return (
     <div>
       <h3>Season {seasonInfo.seasonNumber} Contestants</h3>
+      <div className="mb-5"></div>
       <div className="comp-container">
         {renderedList}
       </div>
